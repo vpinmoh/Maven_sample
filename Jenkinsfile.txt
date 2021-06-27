@@ -1,0 +1,36 @@
+pipeline 
+{
+agent any 
+						stage('COMPILE') {
+          steps {
+                withMaven (maven : 'maven3.6.3')
+                {
+                echo 'Building Assets...'
+                sh 'mvn clean compile'
+                }
+            }
+            }
+    
+      stage('TEST') {
+          steps {
+                withMaven (maven : 'maven3.6.3')
+                {
+                echo 'Building Assets...'
+                sh 'mvn test'
+                }
+            }
+            }     
+            
+           stage('PACKAGE') {
+          steps {
+                withMaven (maven : 'maven3.6.3')
+                {
+                echo 'Building Assets...'
+                sh 'mvn package'
+                }
+            }
+            }     
+    
+        
+}         
+         
