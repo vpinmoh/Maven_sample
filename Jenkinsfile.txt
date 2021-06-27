@@ -1,11 +1,14 @@
 pipeline 
 {
-agent any 
-						stage('COMPILE') {
+   
+agent any
+
+     stages{
+		stage('COMPILE') {
           steps {
                 withMaven (maven : 'maven3.6.3')
                 {
-                echo 'Building Assets...'
+             
                 sh 'mvn clean compile'
                 }
             }
@@ -31,6 +34,6 @@ agent any
             }
             }     
     
-        
+     }       
 }         
          
